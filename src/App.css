@@ -6,7 +6,9 @@
 }
 
 body{
-  background-color: rgb(112, 122, 122);
+  background-color: #FCF6F5FF
+
+  ;
 }
 
 /* Nav Bar  */
@@ -17,11 +19,11 @@ body{
 }
 
 .Nav{
-  background-color: #22538a;
+  background-color: #990011FF;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px 10%;
+  padding: 50px 10%;
 }
 
 .navLinks{
@@ -68,9 +70,9 @@ body{
 .productCard{
   width: 380px;
   position: relative;
-  box-shadow: 0px 2px 7px #dfdfdf;
+  box-shadow: 0px 2px 7px #990011FF;
   margin: 50px auto;
-  background: #fafafa;
+  background: #FCF6F5FF;
 }
 
 img{

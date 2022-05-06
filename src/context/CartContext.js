@@ -4,7 +4,7 @@ export const CartContext = createContext({})
 
 const CartProvider = ({children}) => {
 
-    const [ addToCart, setAddToCart ] = useState([]);
+    const [ addToCart, setAddToCart ] = useState([{title: "hohoohoh", price: "Price", quantity: "quantity", remove: "remove"}, {title: "hahahaha", price: "Price", quantity: "quantity", remove: "remove"}, {title: "hohoohoh", price: "Price", quantity: "quantity", remove: "remove"}, {title: "hahahaha", price: "Price", quantity: "quantity", remove: "remove"}]);
     console.log("this is my current Cart", addToCart)
 
   return ( 

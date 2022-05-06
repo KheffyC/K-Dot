@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
-import { Link, useParams } from 'react-router-dom'
-import ProductDetails from './ProductDetails'
+import { Link } from 'react-router-dom'
 import { ProductContext } from '../context/ProductContext'
 
 const Product = (props) => {

@@ -11,6 +11,12 @@ body{
   ;
 }
 
+.brokeBack{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Nav Bar  */
 .Header h1{
   font-family: "My Soul";
@@ -211,4 +217,68 @@ img{
 
 .ToggleName{
   margin-left: 8px;
+}
+
+/* Cart */
+
+.CartCheckoutContainer{
+  margin: 3px;
+  padding: 1%;
+  border: 2px solid red;
+}
+
+.CartHero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  border-bottom:1px solid red ;
+  font-size: x-large;
+}
+.CartHero h5 {
+  padding: 13px 0px 15px 0px;
+}
+
+.CartItemContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+
+
+.CartItem{
+  display: flex;
+  flex-direction: row;
+}
+
+.CartItemDetails{
+  display: inline-flex;
+  text-align: center;
+  border: 2px solid blue;
+}
+
+.CartItemDetails div{
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+/* Counter */
+.counter {
+  display: flex;
+}
+.counter input {
+  width: 50px;
+  line-height: 10px;
+  font-size: 20px;
+  text-align: center;
+  background: #990011FF;
+  color: #fff;
+}
+.counter span {
+  font-size: 20px;
+  padding: 0 10px;
+  cursor:pointer;
+  color: #000;
+  user-select:none;
 }

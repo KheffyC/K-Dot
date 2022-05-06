@@ -1,17 +1,15 @@
 import React, { useContext} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ProductContext } from '../context/ProductContext';
+import { CartContext } from '../context/CartContext';
 
 const ProductDetails = (props) => {
-    let params = useParams();
     const { clickedProduct } = useContext(ProductContext)
-    // const { productArray } = useContext(ProductContext)
+    const { setAddToCart } = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
 
 
-   console.log("params", params)
-//    console.log("array", productArray)
 
-//    const products = props.products;
   return (
     <div>
         {/* {productArray?.filter(product => product.id == params.id).map((prod, id) => (
@@ -25,16 +23,18 @@ const ProductDetails = (props) => {
             </div>
             <div className='DetailDescription'>
                 <div className='DetailDetail'>
-                    <span>Description: </span>{clickedProduct.description}
+                    <span>Description: </span>
+                    <p>{clickedProduct.description}</p>
                 </div>
                 <div className='DetailCategory'>
                     <hr />
                     <span>Category: </span>{clickedProduct.category}
                 </div>
                 <div className='DetailPrice'>
-                    <span>Price: </span> {clickedProduct.price}
+                    <span>Price: </span> ${clickedProduct.price}
                 </div>
             </div>
+            <button onClick={() => setAddToCart([...addToCart, clickedProduct]) }>ADD TO CART</button>
         </div>
         <Link to="/Products">Return</Link>
     </div>

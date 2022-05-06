@@ -4,40 +4,79 @@ import Product from './Product';
 import Toggle from './Toggle';
 
 const Products = () => {
-    // const [isLoading, setIsLoading] = useState(true)
-    const { setProductArray } = useContext(ProductContext)
 
+    // Create Array of all Categories
+    // const categoryArray = ["men's clothing", "women's clothing", "electronics", "jewelery"]
+
+    const [isLoading, setIsLoading] = useState(false)
     const [ products, setProducts ] = useState([]);
+    const [ checkedOne, setCheckedOne ] = useState(false)
+    const [ checkedTwo, setCheckedTwo ] = useState(false)
+    const [ checkedThree, setCheckedThree ] = useState(false)
+    const [ checkedFour, setCheckedFour ] = useState(false)
+    const [ checkedArray, setCheckedArray ] = useState([])
 
+    const handleChangeOne = () => {
+        setCheckedOne(!checkedOne);
+      };
+    const handleChangeTwo = () => {
+        setCheckedTwo(!checkedTwo);
+      };
+    const handleChangeThree = () => {
+        setCheckedThree(!checkedThree);
+      };
+    const handleChangeFour = () => {
+        setCheckedFour(!checkedFour);
+      };
+   
+      
+    // Fetch Data from Fake Store API
     async function getProducts(){
         const url = `https://fakestoreapi.com/products`
         const res = await fetch(url);
         const data = await res.json();
         setProducts(data)
-        setProductArray(data)
-        // setIsLoading(false)
+        setIsLoading(false)
     }
     useEffect(() => {
         getProducts();
     }, [])
 
     
-
-
- 
-  return (
+    return (
     <div className='container'> 
-    <div className='FilterNav'>
+      <div className='FilterNav'>
         <h2>FILTER </h2>
         <ul>
-            <Toggle filter = 'Mens'/>
-            <Toggle filter = 'Womens'/>
-            <Toggle filter = 'Jewelry'/>
-            <Toggle filter = 'Technology'/>
+            <Toggle 
+                products = {products}
+                title = "men's"
+                value = {checkedOne}
+                handleChange = {handleChangeOne}
+             />
+            <Toggle 
+                products = {products}
+                title = "women's"
+                value = {checkedTwo}
+                handleChange = {handleChangeTwo}
+             />
+            <Toggle 
+                products = {products}
+                title = "electronics"
+                value = {checkedThree}
+                handleChange = {handleChangeThree}
+             />
+            <Toggle 
+                products = {products}
+                title = "jewelery"
+                value = {checkedFour}
+                handleChange = {handleChangeFour}
+             />
+            
         </ul>
     </div>
         <div className='ProductList'>
-            {products.map((product, id) => 
+            {products?.map((product, id) => 
                 <div key={product.id}>
                     <Product 
                         product={product}                
@@ -46,8 +85,10 @@ const Products = () => {
             )}
         </div>
 
-    </div>
-  )
+    </div> 
+    )
+    
+    
 }
 
 export default Products

@@ -1,17 +1,17 @@
 import './App.css';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom'
-import StoreContext from './context/StoreContext';
 import ProductProvider from './context/ProductContext';
+import CartProvider from './context/CartContext';
 
 
 function App() {
   return (
     <ProductProvider>
-      <StoreContext>
+      <CartProvider>
         <Header />
         <Outlet /> 
-      </StoreContext>
+      </CartProvider>
     </ProductProvider>
   );
 }

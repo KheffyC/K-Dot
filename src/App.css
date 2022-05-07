@@ -27,7 +27,7 @@ body{
 
 
 .Nav{
-  background-color: #990011FF;
+  background-color: #990011;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -196,11 +196,35 @@ img{
 .DetailPage{
   display: flex;
   flex-direction: row;
+  justify-items: center;
   font-size: 30px;
-  margin: 5px;
   padding: 5%;
 }
 
+.DetailDescription{
+  margin: 10px 20px 10px 20px;
+}
+
+.DetailRoutes{
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  align-items: center;
+  justify-content: center;
+}
+
+hr{
+  border: solid red .5px;
+}
+
+.DetailRoutes button{
+  background-color: black;
+  color: white;
+  font-size: large;
+  padding: 1.3%;
+  justify-content: space-around;
+  margin: 0px 15px 0px 15px ;
+}
 /* Toggle Switch */
 
 .switch {
@@ -256,11 +280,21 @@ img{
   display: inline-flex;
   text-align: center;
   border: 2px solid blue;
+  width: 10%;
 }
 
 .CartItemDetails div{
   display: inline-flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.CartRemove{
+  color: #990011FF;
+  font-weight: 700;
+}
+
+.CartRemove:hover{
+  cursor: pointer;
 }
 
 /* Counter */

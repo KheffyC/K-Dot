@@ -1,10 +1,29 @@
-import React, { createContext, useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
 const Cart = () => {
 
   const { addToCart } = useContext(CartContext)
+  const { setAddToCart } = useContext(CartContext)
+  const [ value, setValue ] = useState(1)
+ 
+  // Remove Product from Array and set new State
+  const RemoveCartItem = (title) => {
+    const remove = addToCart.filter(item => item.title !== title)
+
+    setAddToCart(remove)
+    console.log("removed", addToCart)
+  }
+
+  // function getSum(total, num){
+  //   return total + Math.round(num);
+  // }
+
+  // function grabTotals(){
+  //   addToCart.map((item, id) => item.price)
+  // }
+  // console.log(grabTotals())
 
   return (
     <div className='CartPageContainer'>
@@ -16,28 +35,28 @@ const Cart = () => {
       <div className='CartCheckoutContainer'>
         <br />
           <div className='CartItemContainer'>
-            <div className='CartItem'><h3>Product</h3></div> 
-            <h3>Price</h3>
-            <h3>Quantity</h3>
-            <h3>Total</h3>
-            <h3>Remove</h3>
+            <div className='CartItem'><h2>Product</h2></div> 
+            <h2>Price</h2>
+            <h2>Quantity</h2>
+            <h2>Total</h2>
+            <h2>Remove</h2>
           </div>
       </div>
       <div className='CartCheckoutContainer'>
         <br />
         {addToCart.map((cartItem, index) => (
-          <div className='CartItemContainer'>
-            <div className='CartItem' key={index}>
-                <h3>{cartItem.title}</h3>
-            </div> 
-            <div>{cartItem.price}</div>
-            <div class="counter">
-              <span class="down"><FaMinus /></span>
-              <input type="text" value="1" />
-              <span class="up"><FaPlus /></span>
-            </div>            
-            <div>Total</div>
-            <div>{cartItem.remove}</div>
+          <div className='CartItemContainer' key={index}>
+              <div className='CartItem' >
+                  <h3>{cartItem.title}</h3>
+              </div> 
+              <div>{cartItem.price}</div>
+              <div className="counter">
+                <span className="down"><FaMinus onClick={() => setValue(value - 1)}/></span>
+                <input type="text" value={value} onChange={e => e.target.value}/>
+                <span className="up"><FaPlus onClick={() => setValue(value + 1)}/></span>
+              </div>            
+              <div>{Number.parseFloat(cartItem.price, 10) * value}</div>
+              <div className='CartRemove' onClick={() => RemoveCartItem(cartItem.title)}>Remove</div>
           </div>
         ))}
       </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CartContext } from '../context/CartContext'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 
@@ -6,7 +6,6 @@ const Cart = () => {
 
   const { addToCart } = useContext(CartContext)
   const { setAddToCart } = useContext(CartContext)
-  const [ value, setValue ] = useState(1)
  
   // Remove Product from Array and set new State
   const RemoveCartItem = (title) => {
@@ -16,14 +15,17 @@ const Cart = () => {
     console.log("removed", addToCart)
   }
 
-  // function getSum(total, num){
-  //   return total + Math.round(num);
-  // }
+  // Increase Cart Item Quantity 
+  const increaseQuantity = (cartItem, num) => {
+    cartItem.quantity = cartItem.quantity + num;
+    console.log(cartItem)
+  }
+  // Decrease Cart Item Quantity 
+  const decreaseQuantity = (cartItem, num) => {
+    cartItem.quantity = cartItem.quantity - num;
+    console.log("quantity update", cartItem.quantity)
+  }
 
-  // function grabTotals(){
-  //   addToCart.map((item, id) => item.price)
-  // }
-  // console.log(grabTotals())
 
   return (
     <div className='CartPageContainer'>
@@ -51,11 +53,11 @@ const Cart = () => {
               </div> 
               <div>{cartItem.price}</div>
               <div className="counter">
-                <span className="down"><FaMinus onClick={() => setValue(value - 1)}/></span>
-                <input type="text" value={value} onChange={e => e.target.value}/>
-                <span className="up"><FaPlus onClick={() => setValue(value + 1)}/></span>
+                <span className="down"><FaMinus onClick={() => (decreaseQuantity(cartItem, 1))}/></span>
+                <input type="text" value={cartItem.quantity} onChange={increaseQuantity || decreaseQuantity}/>
+                <span className="up"><FaPlus onClick={() => (increaseQuantity(cartItem, 1))}/></span>
               </div>            
-              <div>{Number.parseFloat(cartItem.price, 10) * value}</div>
+              <div>{Number.parseFloat(cartItem.price, 10) * cartItem.quantity}</div>
               <div className='CartRemove' onClick={() => RemoveCartItem(cartItem.title)}>Remove</div>
           </div>
         ))}

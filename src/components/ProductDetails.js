@@ -10,6 +10,28 @@ const ProductDetails = (props) => {
 
     const navigate = useNavigate();
 
+    // console.log(filteredCart);
+    
+    const addItem = (product, quantity) => {
+        const item = {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: quantity,
+        };
+        const filteredCart = addToCart.filter(cartItem => cartItem.id === item.id);
+        
+        if(filteredCart.length === 0){
+            setAddToCart([...addToCart, item])
+        } else if (filteredCart){
+            let updatedQuantity = filteredCart[0].quantity + quantity
+            filteredCart[0].quantity = updatedQuantity;
+            console.log(filteredCart, "filteredCart")
+            console.log("add to Cart", addToCart) 
+        }
+       
+    }
+
   return (
     <div>
         <div className='DetailPage'>
@@ -32,7 +54,7 @@ const ProductDetails = (props) => {
         </div>
         <hr />
         <div className='DetailRoutes'>
-            <button onClick={() => setAddToCart([...new Set([...addToCart, clickedProduct])])}>ADD TO CART</button>
+            <button onClick={() => addItem(clickedProduct, 1)}>ADD TO CART</button>
             <button>PROCEED TO CART</button>
             <button className='ContShopping' onClick={() => navigate("/Products")}>CONTINUE SHOPPING</button>
         </div>

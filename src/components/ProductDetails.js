@@ -1,5 +1,5 @@
 import React, { useContext} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { ProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
 
@@ -10,10 +10,10 @@ const ProductDetails = (props) => {
 
     const navigate = useNavigate();
 
-    // console.log(filteredCart);
     
     const addItem = (product, quantity) => {
         const item = {
+            image: product.image,
             id: product.id,
             title: product.title,
             price: product.price,

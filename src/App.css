@@ -117,7 +117,7 @@ body{
 .productCard{
   width: 380px;
   position: relative;
-  box-shadow: 0px 2px 7px #990011FF;
+  box-shadow: 0px 2px 7px #990011;
   margin: 50px auto;
   background: #FCF6F5FF;
 }
@@ -147,7 +147,7 @@ img{
   position: relative;
   align-items: center;
   bottom: 0;
-  background-color: #990011FF;
+  background-color: #990011;
   color: white;
   font-weight: 800;
   font-size: large;
@@ -212,7 +212,7 @@ img{
 }
 
 hr{
-  border: solid red .5px;
+  border: solid #990011 .5px;
 }
 
 .DetailRoutes button{
@@ -243,69 +243,109 @@ hr{
 
 /* Cart */
 
-.CartCheckoutContainer{
-  margin: 3px;
-  padding: 1%;
-  border: 2px solid red;
-}
-
 .CartHero{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1%;
-  border-bottom:1px solid red ;
+  border-bottom:2px solid #990011 ;
   font-size: x-large;
 }
 .CartHero h5 {
   padding: 13px 0px 15px 0px;
 }
 
-.CartItemContainer{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 1%;
+.CartItemHeader{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-items: center;
 }
 
+.CartItemContainer{
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-items: center;
+}
 
 .CartItem{
   display: flex;
   flex-direction: row;
+  margin: 40px 0px 40px 0px;
+  border: 2px solid red;
+  justify-content: center;
 }
 
-.CartItemDetails{
-  display: inline-flex;
-  text-align: center;
-  border: 2px solid blue;
-  width: 10%;
+.CartImage{
+  width: auto;
+  height: 100%;
+  max-width: 150px;
+  max-height: 100px;
+  margin: 70px 0px;
 }
 
-.CartItemDetails div{
-  display: inline-flex;
-  justify-content: space-between;
+.CartColumn h3{
+  align-items: center;
+  font-size: 25px;
+  margin: 100px 0px 100px 0px ;
+}
+
+.CartColumn select{
+  margin: 100px 0px 100px 0px ;
+
 }
 
 .CartRemove{
-  color: #990011FF;
+  color: #990011;
+  font-size: x-large;
   font-weight: 700;
+  margin: 100px 0px 100px 0px ;
+
 }
 
 .CartRemove:hover{
   cursor: pointer;
 }
 
+.CartSummary {
+  display: grid;
+  text-align: right;
+  font-size: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .div1 { grid-area: 1 / 1 / 2 / 2; }
+  .div2 { grid-area: 1 / 2 / 2 / 3; }
+  .div3 { grid-area: 2 / 1 / 3 / 2; }
+  .div4 { grid-area: 2 / 2 / 3 / 3; }
+  .div5 { grid-area: 3 / 1 / 4 / 2; }
+  .div6 { grid-area: 3 / 2 / 4 / 3; }
+  .div7 { grid-area: 4 / 1 / 5 / 2; font-weight: 700;  }
+  .div8 { grid-area: 4 / 2 / 5 / 3; font-weight: 700; border-top: 2px solid #990011;}
+
 /* Counter */
 .counter {
   display: flex;
 }
-.counter input {
-  width: 50px;
-  line-height: 10px;
-  font-size: 20px;
+.counter select {
+  width: 60px;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-size: 25px;
+  font-weight: 700;
   text-align: center;
-  background: #990011FF;
-  color: #fff;
+  background-color: #FCF6F5FF;
+  color: #990011;
 }
 .counter span {
   font-size: 20px;

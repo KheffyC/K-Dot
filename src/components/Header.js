@@ -14,12 +14,10 @@ const Header = () => {
               <h1>K-Dot</h1>
             <ul className="navLinks">
                 <li><NavLink to="/Products"><IoShirt/> Products</NavLink></li>
-                <li><NavLink to="/Cart"><ImCart />   Cart ({addToCart.length})</NavLink></li>
+                <li>{(addToCart.length > 0) ? <NavLink to="/Cart"><ImCart />   Cart ({addToCart.length})</NavLink> : <ImCart />}</li>
                 <li><NavLink to="/Checkout"><FaShoppingBasket /> Checkout</NavLink></li>
             </ul>
           </nav>
-      </div>
-      <div className='Footer'>
       </div>
     </>
   )

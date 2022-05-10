@@ -1,13 +1,25 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 export const CartContext = createContext({})
 
 const CartProvider = ({children}) => {
 
-    const [ addToCart, setAddToCart ] = useState([{id: 2,
-      price: 22.3,
-      quantity: 1,
-      title: "Mens Casual Premium Slim Fit T-Shirts "}]);
+  // Save Cart to Local Storage
+    function useStickyState(defaultValue, key) {
+      const [value, setValue] = React.useState(() => {
+        const stickyValue = window.localStorage.getItem(key);
+        return stickyValue !== null
+          ? JSON.parse(stickyValue)
+          : defaultValue;
+      });
+      React.useEffect(() => {
+        window.localStorage.setItem(key, JSON.stringify(value));
+      }, [key, value]);
+      return [value, setValue];
+    }
+
+
+    const [ addToCart, setAddToCart ] = useStickyState([], "cart")
 
     console.log("this is my current Cart", addToCart)
 

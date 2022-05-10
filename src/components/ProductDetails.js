@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { ProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
@@ -8,10 +8,11 @@ const ProductDetails = (props) => {
     const { setAddToCart } = useContext(CartContext)
     const { addToCart } = useContext(CartContext)
 
+    const [ clicked, setClicked ] = useState(false)
     const navigate = useNavigate();
-
     
     const addItem = (product, quantity) => {
+        setClicked(true)
         const item = {
             image: product.image,
             id: product.id,
@@ -32,6 +33,8 @@ const ProductDetails = (props) => {
        
     }
 
+    
+
   return (
     <div>
         <div className='DetailPage'>
@@ -40,6 +43,7 @@ const ProductDetails = (props) => {
             </div>
             <div className='DetailDescription'>
                 <div className='DetailDetail'>
+                    <h2>{clickedProduct.title}</h2>
                     <span>Description: </span>
                     <p>{clickedProduct.description}</p>
                 </div>
@@ -54,9 +58,9 @@ const ProductDetails = (props) => {
         </div>
         <hr />
         <div className='DetailRoutes'>
-            <button onClick={() => addItem(clickedProduct, 1)}>ADD TO CART</button>
-            <button>PROCEED TO CART</button>
             <button className='ContShopping' onClick={() => navigate("/Products")}>CONTINUE SHOPPING</button>
+            {!clicked ? <button onClick={() => addItem(clickedProduct, 1)}>ADD TO CART</button> : <button style={{backgroundColor: 'green'}}>ADDED TO CART</button> } 
+            {addToCart.length > 0 ? <button onClick={() => navigate("/Cart")}>PROCEED TO CART</button> : <button>PROCEED TO CART</button> }
         </div>
     </div>
   )

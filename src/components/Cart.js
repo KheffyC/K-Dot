@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
 import CartQuantity from './CartQuantity'
 
@@ -11,32 +12,46 @@ const Cart = () => {
   const [ total, setTotal ] = useState(0)
   const [ reRender, setReRender ] = useState(false)
 
+  const navigate = useNavigate();
+
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
  
   // Remove Product from Array and set new State
   const removeCartItem = (title) => {
     const remove = addToCart.filter(item => item.title !== title)
-    setAddToCart(remove)
-    setReRender(!reRender)
+    
+    if (remove.length > 0){
+      setAddToCart(remove)
+      refreshPage();
+    } else {
+      setAddToCart(remove);
+      navigate("/Products");
+    }
   }
-  const updateRender = () => {
-    setAddToCart(addToCart);
-  }
+  
+  
 
   // Cart Summary 
     const subtotal = () => {
       const subTotalArray = addToCart.map(item => item.quantity * item.price)
+      if (subTotalArray === []){
+        return addToCart
+      } else {
       const sum = subTotalArray.reduce(function (previousValue, currentValue) {
         return previousValue + currentValue;
         });   
       setSubTotal(Number.parseFloat(sum).toFixed(2));
     }
+    }
+
+  useEffect(() => {
+        subtotal();
+        cartTotal();
+      }, [reRender])
 
     
-    useEffect(() => {
-      subtotal();
-      cartTotal();
-      updateRender();
-    }, [reRender])
     
     //Estimate Tax 
     const tax = Number.parseFloat(subTotal * .0725).toFixed(2); 
@@ -53,7 +68,8 @@ const Cart = () => {
   
 
   return (
-    <div className='CartPageContainer'>
+    <>
+  {(addToCart.length < 0) ? <div>Sorry</div> : <div className='CartPageContainer'>
       <div className='CartHero'>
         <h1>Review Your Cart. </h1>
         <h5>Free Delivery and free returns</h5>
@@ -91,8 +107,9 @@ const Cart = () => {
           <div className="div5">Estimated Tax </div><div className="div6">${tax}</div>
           <div className="div7">TOTAL </div><div className="div8">${total}</div>
         </div>               
-    </div>
-  )
+    </div> }
+    </>
+    )
 }
 
 export default Cart

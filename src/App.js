@@ -10,7 +10,9 @@ function App() {
     <ProductProvider>
       <CartProvider>
         <Header />
-        <Outlet /> 
+        <div id="content-wrap">
+         <Outlet /> 
+        </div>
       </CartProvider>
     </ProductProvider>
   );

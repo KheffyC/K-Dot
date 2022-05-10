@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=My+Soul&display=swap');
 
+
+
 *{
-  margin: 0;
-  padding: 0;
+    padding: 0;
+    margin: 0;
 }
 
 body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
   background-color: #FCF6F5FF;
 }
 
@@ -199,6 +204,11 @@ img{
   padding: 5%;
 }
 
+.DetailImage{
+  max-width: 250px;
+  max-height: 400px;
+}
+
 .DetailDescription{
   margin: 10px 20px 10px 20px;
 }
@@ -321,16 +331,17 @@ hr{
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin-right: 8vw;
   }
   
-  .div1 { grid-area: 1 / 1 / 2 / 2; }
-  .div2 { grid-area: 1 / 2 / 2 / 3; }
-  .div3 { grid-area: 2 / 1 / 3 / 2; }
-  .div4 { grid-area: 2 / 2 / 3 / 3; }
-  .div5 { grid-area: 3 / 1 / 4 / 2; }
-  .div6 { grid-area: 3 / 2 / 4 / 3; }
-  .div7 { grid-area: 4 / 1 / 5 / 2; font-weight: 700;  }
-  .div8 { grid-area: 4 / 2 / 5 / 3; font-weight: 700; border-top: 2px solid #990011;}
+  .div1 { grid-area: 1 / 1 / 2 / 2;margin-bottom: 8px; }
+  .div2 { grid-area: 1 / 2 / 2 / 3;margin-bottom: 8px; }
+  .div3 { grid-area: 2 / 1 / 3 / 2;margin-bottom: 8px; }
+  .div4 { grid-area: 2 / 2 / 3 / 3;margin-bottom: 8px; }
+  .div5 { grid-area: 3 / 1 / 4 / 2;margin-bottom: 8px; }
+  .div6 { grid-area: 3 / 2 / 4 / 3;margin-bottom: 8px; }
+  .div7 { grid-area: 4 / 1 / 5 / 2;margin-bottom: 8px; font-weight: 700;  }
+  .div8 { grid-area: 4 / 2 / 5 / 3;margin-bottom: 8px; font-weight: 700; border-top: 2px solid #990011;}
 
 /* Counter */
 .counter {

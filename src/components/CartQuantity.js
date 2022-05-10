@@ -2,14 +2,16 @@ import React, { useState, useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const CartQuantity = ({ cartItem, index, reRender, setReRender }) => {
-    const { addToCart } = useContext(CartContext)
-    const [ newQuantity, setNewQuantity ] = useState(cartItem.quantity)
+
+  const [ newQuantity, setNewQuantity ] = useState(cartItem.quantity)
+  const { addToCart, setAddToCart } = useContext(CartContext)
 
      // Increase/Decrease Cart Item Quantity 
   const changeQuantity = (event) => {
     cartItem.quantity = event.target.value
     setNewQuantity(cartItem.quantity)
     setReRender(!reRender);
+    setAddToCart([...addToCart])
     console.log("quantity update", cartItem.quantity, "new cart", addToCart)
   }
 

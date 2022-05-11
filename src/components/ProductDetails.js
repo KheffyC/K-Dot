@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { FaChevronLeft } from 'react-icons/fa'
 import {  useNavigate } from 'react-router-dom'
 import { ProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
@@ -37,30 +38,29 @@ const ProductDetails = (props) => {
 
   return (
     <div>
-        <div className='DetailPage'>
+        <div className='DetailPage' style={{backgroundColor: '#f0ece9'}}>
             <div className='DetailImage'>
                 <img style={{margin: '0px 20px 10px -10px'}} src={clickedProduct.image} alt={clickedProduct.title}/>
             </div>
             <div className='DetailDescription'>
                 <div className='DetailDetail'>
-                    <h2>{clickedProduct.title}</h2>
-                    <span>Description: </span>
-                    <p>{clickedProduct.description}</p>
-                </div>
-                <div className='DetailCategory'>
+                    <h2 style={{fontFamily: 'Merriweather'}}>{clickedProduct.title}</h2>
+                    <div className='DetailCategory' style={{color:'#8b8c8a', fontFamily: 'Merriweather', fontWeight: '300', fontStyle: 'italic'}}>
+                        {clickedProduct.category}
+                    </div>
+                    <br/>
+                    <div className='DetailPrice' style={{fontSize: '35px', fontFamily: 'Merriweather'}}>
+                        ${clickedProduct.price}
+                    </div>
                     <br />
-                    <span>Category: </span>{clickedProduct.category}
-                </div>
-                <div className='DetailPrice'>
-                    <span>Price: </span> ${clickedProduct.price}
+                    <p style={{ fontFamily: 'Merriweather', fontStyle: 'oblique', fontWeight: '375'}}>{clickedProduct.description}</p>
                 </div>
             </div>
         </div>
         <hr />
         <div className='DetailRoutes'>
-            <button className='ContShopping' onClick={() => navigate("/Products")}>CONTINUE SHOPPING</button>
+            <button className='ContShopping' onClick={() => navigate("/Products")}><FaChevronLeft  style={{fontSize: 'large', marginRight: '20px'}}/>CONTINUE SHOPPING</button>
             {!clicked ? <button onClick={() => addItem(clickedProduct, 1)}>ADD TO CART</button> : <button style={{backgroundColor: 'green'}}>ADDED TO CART</button> } 
-            {addToCart.length > 0 ? <button onClick={() => navigate("/Cart")}>PROCEED TO CART</button> : <button>PROCEED TO CART</button> }
         </div>
     </div>
   )

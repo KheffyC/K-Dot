@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=My+Soul&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,300;1,400&display=swap');
 
 
 *{
@@ -8,16 +8,98 @@
 }
 
 body{
+  /* font-family: 'Merriweather'; */
   padding: 0;
   margin: 0;
   height: 100%;
-  background-color: #FCF6F5FF;
+  background-color: #f0ece9;
 }
 
 .brokeBack{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Loading Spinner  */
+.lds-spinner {
+  color: black;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-top: 350px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #000;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Nav Bar  */
@@ -184,12 +266,15 @@ img{
 
 .productBottom{
   overflow: hidden;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #8b8c8a;
   padding-top: 20px;
 }
 
 .productPrice{
-  font-size: 18px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
   font-weight: 700;
   color: #181f5d;
 }
@@ -216,9 +301,11 @@ img{
 .DetailRoutes{
   display: flex;
   flex-direction: row;
-  padding: 1%;
+  padding: 1.3%;
   align-items: center;
   justify-content: center;
+  margin: 0px 15px 0px 15px ;
+
 }
 
 hr{
@@ -226,12 +313,16 @@ hr{
 }
 
 .DetailRoutes button{
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   font-size: large;
   padding: 1.3%;
   justify-content: space-around;
   margin: 0px 15px 0px 15px ;
+}
+
+.DetailRoutes button:hover{
+  cursor: pointer;
 }
 /* Toggle Switch */
 
@@ -263,6 +354,18 @@ hr{
 }
 .CartHero h5 {
   padding: 13px 0px 15px 0px;
+}
+
+.CheckOutButton{
+  font-size: 20px;
+  background-color: #181616;
+  color:#f0ece9;
+  padding: .55%;
+  width: 300px;
+}
+
+.CheckOutBox{
+  justify-self: right;
 }
 
 .CartItemHeader{
@@ -328,7 +431,7 @@ hr{
   text-align: right;
   font-size: 25px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin-right: 8vw;
@@ -342,6 +445,44 @@ hr{
   .div6 { grid-area: 3 / 2 / 4 / 3;margin-bottom: 8px; }
   .div7 { grid-area: 4 / 1 / 5 / 2;margin-bottom: 8px; font-weight: 700;  }
   .div8 { grid-area: 4 / 2 / 5 / 3;margin-bottom: 8px; font-weight: 700; border-top: 2px solid #990011;}
+  .div9 { grid-area: 5 / 2 / 6 / 3; margin-top: 10px; }
+
+/* Checkout Page  */
+
+.CheckoutPage {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .CheckoutForm { grid-area: 1 / 1 / 5 / 5;  margin: 50px 20px 5px 100px }
+
+  .inputField{
+    margin: 0px 500px 20px 0px;
+    font-size: large;
+    border: 1px solid #f0ece9;
+    border-radius: 9px ;
+  }
+  .StateZipInput{
+    border: 1px solid #f0ece9;
+    font-size: large;
+    border-radius: 9px ;
+    margin: 0px 30px 20px 0px;
+  }
+  .CheckoutSummary { grid-area: 1 / 5 / 5 / 8; margin: 85px 40px 0px -80px  }
+
+  .CheckoutItemContainer{
+    display: grid;
+    height: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 60px;
+    font-size: large;
+  }
+
+  .CheckoutCart { grid-area: 2 / 5 / 4 / 8; }
 
 /* Counter */
 .counter {
@@ -355,7 +496,7 @@ hr{
   font-size: 25px;
   font-weight: 700;
   text-align: center;
-  background-color: #FCF6F5FF;
+  background-color: #f0ece9;
   color: #990011;
 }
 .counter span {

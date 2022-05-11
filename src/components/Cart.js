@@ -21,7 +21,7 @@ const Cart = () => {
   // Remove Product from Array and set new State
   const removeCartItem = (title) => {
     const remove = addToCart.filter(item => item.title !== title)
-    
+
     if (remove.length > 0){
       setAddToCart(remove)
       refreshPage();
@@ -68,12 +68,11 @@ const Cart = () => {
   
 
   return (
-    <>
-  {(addToCart.length < 0) ? <div>Sorry</div> : <div className='CartPageContainer'>
+    <div className='CartPageContainer'>
       <div className='CartHero'>
         <h1>Review Your Cart. </h1>
-        <h5>Free Delivery and free returns</h5>
-        <button>CHECK OUT</button>
+        <h5>Free Delivery and Free Returns</h5>
+        <button className='CheckOutButton'>CHECK OUT</button>
       </div>
         <br />
       <div className='CartItemHeader'>
@@ -106,9 +105,10 @@ const Cart = () => {
           <div className="div3">Shipping </div><div className="div4"> FREE</div>
           <div className="div5">Estimated Tax </div><div className="div6">${tax}</div>
           <div className="div7">TOTAL </div><div className="div8">${total}</div>
-        </div>               
-    </div> }
-    </>
+          <div className="div9"><button className='CheckOutButton'>CHECK OUT</button></div>
+        </div>  
+        
+    </div>
     )
 }
 

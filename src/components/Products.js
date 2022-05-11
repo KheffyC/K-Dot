@@ -2,32 +2,15 @@ import React, { useEffect, useState, useContext } from 'react'
 import { ProductContext } from '../context/ProductContext';
 import Product from './Product';
 import Toggle from './Toggle';
+import Loading from './Loading';
 
 const Products = () => {
 
     // Create Array of all Categories
     // const categoryArray = ["men's clothing", "women's clothing", "electronics", "jewelery"]
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [ products, setProducts ] = useState([]);
-    const [ checkedOne, setCheckedOne ] = useState(false)
-    const [ checkedTwo, setCheckedTwo ] = useState(false)
-    const [ checkedThree, setCheckedThree ] = useState(false)
-    const [ checkedFour, setCheckedFour ] = useState(false)
-    const [ checkedArray, setCheckedArray ] = useState([])
-
-    const handleChangeOne = () => {
-        setCheckedOne(!checkedOne);
-      };
-    const handleChangeTwo = () => {
-        setCheckedTwo(!checkedTwo);
-      };
-    const handleChangeThree = () => {
-        setCheckedThree(!checkedThree);
-      };
-    const handleChangeFour = () => {
-        setCheckedFour(!checkedFour);
-      };
    
       
     // Fetch Data from Fake Store API
@@ -45,46 +28,41 @@ const Products = () => {
     
     return (
     <div className='container'> 
-      <div className='FilterNav'>
-        <h2>FILTER </h2>
-        <ul>
-            <Toggle 
-                products = {products}
-                title = "men's"
-                value = {checkedOne}
-                handleChange = {handleChangeOne}
-             />
-            <Toggle 
-                products = {products}
-                title = "women's"
-                value = {checkedTwo}
-                handleChange = {handleChangeTwo}
-             />
-            <Toggle 
-                products = {products}
-                title = "electronics"
-                value = {checkedThree}
-                handleChange = {handleChangeThree}
-             />
-            <Toggle 
-                products = {products}
-                title = "jewelery"
-                value = {checkedFour}
-                handleChange = {handleChangeFour}
-             />
-            
-        </ul>
-    </div>
-        <div className='ProductList'>
-            {products?.map((product, id) => 
-                <div key={product.id}>
-                    <Product 
-                        product={product}                
-                    />
-                </div>        
-            )}
+        {isLoading === true ? (<Loading />) : (
+        <>
+        <div className='FilterNav'>
+            <h2>FILTER </h2>
+            <ul>
+                <Toggle 
+                    products = {products}
+                    title = "men's"
+                />
+                <Toggle 
+                    products = {products}
+                    title = "women's"
+                />
+                <Toggle 
+                    products = {products}
+                    title = "electronics"
+                />
+                <Toggle 
+                    products = {products}
+                    title = "jewelery"
+                />
+                
+            </ul>
         </div>
-
+            <div className='ProductList'>
+                {products?.map((product, id) => 
+                    <div key={product.id}>
+                        <Product 
+                            product={product}                
+                        />
+                    </div>        
+                )}
+            </div>
+        </>
+        )}
     </div> 
     )
     

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Routes, Route, BrowserRouter} from 'react-router-dom'
+import { Routes, Route, HashRouter as Router} from 'react-router-dom'
 import Home from './components/Home';
 import Products from './components/Products'
 import Cart from './components/Cart';
@@ -17,7 +17,7 @@ import NotFound from './components/NotFound';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<App />} >
           <Route index element={<Home />}/>
@@ -28,7 +28,7 @@ root.render(
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
 

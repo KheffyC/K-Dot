@@ -16,7 +16,7 @@ const Header = () => {
                 <li><NavLink to="/"><IoHome/> Home</NavLink></li>
                 <li><NavLink to="/Products"><IoShirt/> Products</NavLink></li>
                 <li>{(addToCart.length > 0) ? <NavLink to="/Cart"><ImCart />   Cart ({addToCart.length})</NavLink> : <ImCart />}</li>
-                <li><NavLink to="/Checkout"><FaShoppingBasket /> Checkout</NavLink></li>
+                <li>{(addToCart.length > 0) ? <NavLink to="/Checkout"><FaShoppingBasket />   Checkout</NavLink> : <FaShoppingBasket />}</li>
             </ul>
           </nav>
       </div>

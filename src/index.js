@@ -25,7 +25,7 @@ root.render(
           <Route path="/Products/:id" element={<ProductDetails  />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>

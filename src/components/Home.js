@@ -1,13 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { fadeInUp } from 'react-animations';
+import Welcome from './Welcome';
 
 const Home = () => {
 
-  const navigate = useNavigate();
   return (
-    <div>
-      Home
-      <button onClick={() => navigate("/Products")}>Lets Get Started</button>
+    <div className='HomePage'>
+      <br />
+      <Welcome animationType = {fadeInUp} />
     </div>
   )
 }

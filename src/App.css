@@ -102,6 +102,34 @@ body{
   }
 }
 
+.HomePage{
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.HomeButton{
+  height: 40px;
+  width: 500px;
+  border-radius: 8px;
+  color: #990011;
+}
+
+.AnimationH1{
+  font-size: 100px;
+}
+
+.SocialLinks ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 50px;
+  margin-top: 50px;
+}
 /* Nav Bar  */
 .Header h1{
   font-family: "My Soul";
@@ -360,8 +388,12 @@ hr{
   font-size: 20px;
   background-color: #181616;
   color:#f0ece9;
+  border-radius: 5px;
   padding: .55%;
   width: 300px;
+}
+.CheckOutButton:hover{
+  cursor: pointer;
 }
 
 .CheckOutBox{
@@ -462,12 +494,13 @@ hr{
   .inputField{
     margin: 0px 500px 20px 0px;
     font-size: large;
-    border: 1px solid #f0ece9;
+    border: 1px groove #82818d;
     border-radius: 9px ;
   }
   .StateZipInput{
     border: 1px solid #f0ece9;
     font-size: large;
+    border: 1px groove #82818d;
     border-radius: 9px ;
     margin: 0px 30px 20px 0px;
   }
@@ -476,13 +509,34 @@ hr{
   .CheckoutItemContainer{
     display: grid;
     height: 100px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 60px;
     font-size: large;
   }
 
   .CheckoutCart { grid-area: 2 / 5 / 4 / 8; }
+
+  .CheckoutTotalSummary{
+      display: grid;
+      color: #181616;
+      text-align: right;
+      font-size: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      margin-right: 8vw;
+      }
+      
+      .div1 { grid-area: 1 / 1 / 2 / 2;margin-bottom: 8px; }
+      .div2 { grid-area: 1 / 2 / 2 / 3;margin-bottom: 8px; }
+      .div3 { grid-area: 2 / 1 / 3 / 2;margin-bottom: 8px; }
+      .div4 { grid-area: 2 / 2 / 3 / 3;margin-bottom: 8px; }
+      .div5 { grid-area: 3 / 1 / 4 / 2;margin-bottom: 8px; }
+      .div6 { grid-area: 3 / 2 / 4 / 3;margin-bottom: 8px; }
+      .div7 { grid-area: 4 / 1 / 5 / 2;margin-bottom: 8px; font-weight: 700;  }
+      .div8 { grid-area: 4 / 2 / 5 / 3;margin-bottom: 8px; font-weight: 700; border-top: 2px solid #990011;}
 
 /* Counter */
 .counter {

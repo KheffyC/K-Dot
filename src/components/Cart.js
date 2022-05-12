@@ -65,6 +65,11 @@ const Cart = () => {
       const sumTax = subSum * .0725;
       setTotal(Number.parseFloat(subSum + sumTax).toFixed(2))
     }
+
+    // Proceed to Checkout 
+    const checkout = () => {
+      navigate("/Checkout");
+    }
   
 
   return (
@@ -72,7 +77,7 @@ const Cart = () => {
       <div className='CartHero'>
         <h1>Review Your Cart. </h1>
         <h5>Free Delivery and Free Returns</h5>
-        <button className='CheckOutButton'>CHECK OUT</button>
+        <button className='CheckOutButton' onClick={checkout}>CHECK OUT</button>
       </div>
         <br />
       <div className='CartItemHeader'>
@@ -105,7 +110,7 @@ const Cart = () => {
           <div className="div3">Shipping </div><div className="div4"> FREE</div>
           <div className="div5">Estimated Tax </div><div className="div6">${tax}</div>
           <div className="div7">TOTAL </div><div className="div8">${total}</div>
-          <div className="div9"><button className='CheckOutButton'>CHECK OUT</button></div>
+          <div className="div9"><button className='CheckOutButton' onClick={checkout} >CHECK OUT</button></div>
         </div>  
         
     </div>

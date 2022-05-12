@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { ProductContext } from '../context/ProductContext';
 import Product from './Product';
-import Toggle from './Toggle';
 import Loading from './Loading';
 
 const Products = () => {
@@ -30,28 +28,6 @@ const Products = () => {
     <div className='container'> 
         {isLoading === true ? (<Loading />) : (
         <>
-        <div className='FilterNav'>
-            <h2>FILTER </h2>
-            <ul>
-                <Toggle 
-                    products = {products}
-                    title = "men's"
-                />
-                <Toggle 
-                    products = {products}
-                    title = "women's"
-                />
-                <Toggle 
-                    products = {products}
-                    title = "electronics"
-                />
-                <Toggle 
-                    products = {products}
-                    title = "jewelery"
-                />
-                
-            </ul>
-        </div>
             <div className='ProductList'>
                 {products?.map((product, id) => 
                     <div key={product.id}>

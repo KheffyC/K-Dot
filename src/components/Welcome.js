@@ -1,7 +1,7 @@
 import React from 'react'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled, {keyframes} from "styled-components"
-import { ImFacebook2, ImLinkedin2, ImInstagram, ImGithub } from 'react-icons/im'
+import { ImFacebook2, ImLinkedin2, ImGithub } from 'react-icons/im'
 
 const Welcome = ({ animationType }) => {
 

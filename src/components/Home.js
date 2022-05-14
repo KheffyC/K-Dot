@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { fadeInUp } from 'react-animations';
 import Welcome from './Welcome';
 
